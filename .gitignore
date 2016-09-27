@@ -1,2 +1,5 @@
-#.gitignore
-auto-save-list
+/auto-save-list/
+/elpa/
+/plugins/
+*.zip
+*.elc
