@@ -1,3 +1,4 @@
+##.gitignore白名单的方式
 *
 !.gitignore
 !init.el
