@@ -5,5 +5,5 @@
 !README.md
 !lisp/
 !lisp/*.el
-!note/
-!note/*
+!org/
+!org/*
