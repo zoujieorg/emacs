@@ -2,7 +2,7 @@
 !.gitignore
 !init.el
 !README.md
-!list/
+!lisp/
 !lisp/*.el
 !note/
 !note/*
