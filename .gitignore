@@ -1,5 +1,5 @@
 !.gitignore
 !.init.el
-!/lisp/*.el
-!/note/*
-/*/
+!lisp/*.el
+!note/*
+*/
