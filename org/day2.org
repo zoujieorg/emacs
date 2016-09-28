@@ -8,6 +8,11 @@
   (setq make-backup-files nil)
 #+END_SRC
 3.添加自动注释
+8.不对吧
+
+
+
+
 <s Tab
 #+BEGIN_SRC emacs-lisp
   (require 'org)
@@ -20,3 +25,11 @@
 (setq initial-frame-alist (quota ((fullscreen . maximized))))
 
 #+END_SRC
+** dfapsdf df 
+1.test
+2.e23
+3.9323
+5.adiwerf
+8.adf
+9.theisf
+*

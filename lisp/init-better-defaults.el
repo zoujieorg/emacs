@@ -16,7 +16,12 @@
 ;;注释文件中的语法高亮
 (setq org-src-fontify-natively t)
 
-;;自动添加()成对
+;;自动补齐()成对
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
+(global-hungry-delete-mode)
+
+
 (provide 'init-better-defaults)
+
+
