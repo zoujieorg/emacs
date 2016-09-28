@@ -6,6 +6,9 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+(require 'org-install)
+(require 'ob-tangle)
+;;(org-babel-load-file (expand-file-name "zoujie.org" user-emacs-directory))
 
 ;;系统自带的包
 (require 'org)
@@ -24,19 +27,10 @@
 (require 'init-functions)
 (require 'init-better-defaults)
 (require 'init-keybindings)
-(require 'init-custom)
 (require 'init-ui)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-idle-delay 0.08)
- '(company-minimum-prefix-length 1))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;;以下2行与(require 'init-custom) 同效
+(setq custom-file (expand-file-name "lisp/init-custom.el" user-emacs-directory))
+(load-file custom-file)
+;;当外部修改了emacs的配置文件后，emacs会自动更新修改。
+(global-auto-revert-mode t)

@@ -1,11 +1,17 @@
 (provide 'init-packages)
+
+;;melpa-stable
+;;(add-to-list 'package-archives
+;;	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;;melpa这里面包比较多
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/") t)
 
 ;;(setq package-selected-packages 'zoujieorg/packages)
 (defvar zoujieorg/packages '(
 			     company
 			     monokai-theme
+			     ;;melpa-stable里没有hungry-delete
 			     hungry-delete
 			     ;;smex与swiper功能差不多,
 			     ;;swiper依赖counsel包
@@ -16,6 +22,9 @@
 			     ;;javascript-mode
 			     js2-mode
 			     ;;nodejs-repl
+			     ;;C-h v查看变量说明，需要手动进入。
+			     ;;popwin会自动打开buffer并移动光标进入，按"q"自动退出
+			     popwin
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()
@@ -65,3 +74,8 @@
 ;; 把js直接发送到buffer里直接执行 
 ;; nodejs-repl-send-buffer
 
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
+(require 'popwin)
+(popwin-mode t)
