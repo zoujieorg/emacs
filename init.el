@@ -6,12 +6,7 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-(require 'org-install)
-(require 'ob-tangle)
-;;(org-babel-load-file (expand-file-name "zoujie.org" user-emacs-directory))
 
-;;系统自带的包
-(require 'org)
 ;;common-lisp-mode
 (require 'cl)
 
@@ -27,6 +22,7 @@
 (require 'init-functions)
 (require 'init-better-defaults)
 (require 'init-keybindings)
+(require 'init-org)
 (require 'init-ui)
 
 ;;以下2行与(require 'init-custom) 同效
@@ -34,3 +30,5 @@
 (load-file custom-file)
 ;;当外部修改了emacs的配置文件后，emacs会自动更新修改。
 (global-auto-revert-mode t)
+
+(set-language-environment "UTF-8")

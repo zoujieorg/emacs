@@ -26,9 +26,12 @@
 
 (global-hungry-delete-mode)
 
+;;(with-eval-after-load 'smartparens)
+(smartparens-global-mode t)
 ;;smartparens相关的一些设置
 ;;对于smartparens 取消一部分major mode中的一些符号自动匹配.
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
 
 ;;在语句中间时仍然可以显示所在的括号
 ;;(define-advice show-paren-function (:around (fn) fix-show-paren-function)

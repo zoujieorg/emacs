@@ -29,6 +29,10 @@
 			     js2-refactor
 			     expand-region
 			     iedit
+			     org-pomodoro
+			     helm-ag
+			     flycheck
+			     auto-yasnippet
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()
@@ -118,3 +122,12 @@
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
 (global-set-key (kbd "C-=") 'er/expand-region)
+(require 'org-pomodoro)
+
+;;(global-flycheck-mode t)
+(add-hook 'js2-mode-hook 'flycheck-mode)
+
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
