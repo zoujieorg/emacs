@@ -26,6 +26,18 @@
 
 (global-hungry-delete-mode)
 
+;;smartparens相关的一些设置
+;;对于smartparens 取消一部分major mode中的一些符号自动匹配.
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+
+;;在语句中间时仍然可以显示所在的括号
+;;(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+;;  "Hightlight enclosing parens."
+;;  (cond ((looking-at-p "\\s(") (function fn))
+;;	(t (save-excursion
+;;	     (ignore-errors (backward-up-list))
+;;	     (funcall fn)))))
+
 (setq dired-recursive-deletes 'always)
 (setq dired-recursive-copies 'always)
 (put 'dired-find-alternate-file 'disabled nil)
@@ -37,4 +49,24 @@
 ;;(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 
 ;; C-x C-j就可以打开当前buffer的dired
+
+;;occur
+;;; dwim "do what I mean"
+(defun occur-dwim ()
+  "Call 'occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+
+(global-set-key (kbd "M-s o") 'occur-dwim)
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+(global-set-key (kbd "M-s e") 'iedit-mode)
+
 (require 'dired-x)

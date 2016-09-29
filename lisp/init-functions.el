@@ -29,3 +29,17 @@
       (message "Indented buffer."))))
 
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+;;隐藏Dos换行符
+(defun hidden-dos-eol ()
+  "Do not show ^M in files containing mixed Unix and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-tableF))
+  (aset buffer-display-table ?\^M []))
+
+;;删除Dos换行符
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed Unix and DOS line endings."
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
