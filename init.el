@@ -1,11 +1,6 @@
- ;;Add melpa repository to archives
-
-(package-initialize)
-
 ;;let emacs to find excutable command
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
-
 
 ;;common-lisp-mode
 (require 'cl)

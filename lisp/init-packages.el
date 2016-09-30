@@ -1,11 +1,18 @@
 (provide 'init-packages)
 
+(package-initialize)
 ;;melpa-stable
 ;;(add-to-list 'package-archives
 ;;	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;;melpa这里面包比较多
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+;;(add-to-list 'package-archives
+;;	     '("melpa" . "https://melpa.org/packages/") t)
+
+;;国内源
+(when (>= emacs-major-version 24)
+  (setq package-archives '(("popkit" . "http://elpa.popkit.org/packages/")
+			   ))
+  )
 
 ;;(setq package-selected-packages 'zoujieorg/packages)
 (defvar zoujieorg/packages '(
@@ -33,6 +40,7 @@
 			     helm-ag
 			     flycheck
 			     auto-yasnippet
+			     ;;evil 使用vi快捷键方式
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()
@@ -131,3 +139,5 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
+;;(evil-mode 1)
+;;(seqt evil-want-C-u-scroll t)
