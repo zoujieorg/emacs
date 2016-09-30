@@ -41,6 +41,8 @@
 			     flycheck
 			     auto-yasnippet
 			     ;;evil 使用vi快捷键方式
+			     window-numbering
+			     powerline
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()
@@ -141,3 +143,11 @@
 
 ;;(evil-mode 1)
 ;;(seqt evil-want-C-u-scroll t)
+
+(window-numbering-mode t)
+
+(setq window-numbering-assign-func
+      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
+
+(require 'powerline)
+(powerline-default-theme)
