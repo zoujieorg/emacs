@@ -43,6 +43,7 @@
 			     ;;evil 使用vi快捷键方式
 			     window-numbering
 			     powerline
+			     which-key
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()
@@ -146,8 +147,13 @@
 
 (window-numbering-mode t)
 
+;;使用M-1,M-2切换窗口，注意在powerline模式下无法看到窗口编号。
 (setq window-numbering-assign-func
       (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
 
-(require 'powerline)
-(powerline-default-theme)
+;;(require 'powerline)
+;;(powerline-default-theme)
+
+;;(require 'which-key)
+(which-key-mode 1)
+(setq which-key-side-window-max-height 0.25)
