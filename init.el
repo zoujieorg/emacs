@@ -28,3 +28,8 @@
 
 (set-language-environment "UTF-8")
 
+;;如取消息定的包管理则要添加
+;;(require 'cask "~/.cask/cask.el")
+;;(cask-initialize)
+;;(require 'pallet)
+;;(pallet-mode t)

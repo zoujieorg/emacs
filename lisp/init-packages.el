@@ -44,6 +44,11 @@
 			     window-numbering
 			     powerline
 			     which-key
+			     mwe-log-commands
+			     ;;cask多个包
+			     cask
+			     ;;pallet可以让emacs多个版本的包管理。依速cask
+			     pallet
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()

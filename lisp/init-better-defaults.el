@@ -33,13 +33,19 @@
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 (sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
 
-;;在语句中间时仍然可以显示所在的括号
-;;(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+;;在语句中间时仍然可以显示所在的括号 emacs25版支持
+;;(define-advice show-paren-function (:around (fn) fix-show-paren-function)			     
 ;;  "Hightlight enclosing parens."
 ;;  (cond ((looking-at-p "\\s(") (function fn))
 ;;	(t (save-excursion
 ;;	     (ignore-errors (backward-up-list))
 ;;	     (funcall fn)))))
+;;在语句中间时仍然可以显示所在的括号
+(defadvice show-paren-function (around fix-show-paren-function activate)	
+  (cond ((looking-at-p "\\s(") ad-do-it)
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     ad-do-it))))
 
 (setq dired-recursive-deletes 'always)
 (setq dired-recursive-copies 'always)
