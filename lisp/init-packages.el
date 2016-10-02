@@ -5,14 +5,14 @@
 ;;(add-to-list 'package-archives
 ;;	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;;melpa这里面包比较多
-;;(add-to-list 'package-archives
-;;	     '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
 
 ;;国内源
-(when (>= emacs-major-version 24)
-  (setq package-archives '(("popkit" . "http://elpa.popkit.org/packages/")
-			   ))
-  )
+;;(when (>= emacs-major-version 24)
+;;  (setq package-archives '(("popkit" . "http://elpa.popkit.org/packages/")
+;;			   ))
+;;  )
 
 ;;(setq package-selected-packages 'zoujieorg/packages)
 (defvar zoujieorg/packages '(
@@ -46,8 +46,10 @@
 			     which-key
 			     mwe-log-commands
 			     ;;cask多个包
+			     ;; curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 			     cask
 			     ;;pallet可以让emacs多个版本的包管理。依速cask
+			     ;;export PATH="/home/www/.cask/bin:$PATH"
 			     pallet
 			     use-package
 			     ) "Default packages")
@@ -163,3 +165,9 @@
 ;;(require 'which-key)
 (which-key-mode 1)
 (setq which-key-side-window-max-height 0.25)
+
+;;指定具体的company-backends
+;;(add-hook 'python-mode-hook
+;;	  (lambda ()
+;;	    (set (make-local-variable 'company-backends ) '((company-anaconda company-dabbrev-code) company-dabbrev)))
+ 

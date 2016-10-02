@@ -36,12 +36,16 @@
 
 
 (pp (macroexpand `(use-package xxx
+		    ;; 自动安装
+		    ;; :ensure t
+		    ;; 
+		    ;; :pin melpa-stable
 		    :init
 		    (progn
 		      (setq my-name "zoujie")
 		      (setq my-age 33)
 		      )
-		    :config
+ 		    :config
 		    (setq my-dog "peter")
 		    :commands
 		    (global-company-mode)
