@@ -33,3 +33,21 @@
 ;;(cask-initialize)
 ;;(require 'pallet)
 ;;(pallet-mode t)
+
+
+(pp (macroexpand `(use-package xxx
+		    :init
+		    (progn
+		      (setq my-name "zoujie")
+		      (setq my-age 33)
+		      )
+		    :config
+		    (setq my-dog "peter")
+		    :commands
+		    (global-company-mode)
+		    :defer t
+		    :bind 
+		    (("M-s O" . moccur)
+		     :map isearch-mode-map
+		    ("M-o" . isearch-moccur))
+		 )))

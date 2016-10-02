@@ -49,6 +49,7 @@
 			     cask
 			     ;;pallet可以让emacs多个版本的包管理。依速cask
 			     pallet
+			     use-package
 			     ) "Default packages")
 
 (defun zoujieorg/packages-installed-p ()
